@@ -1,0 +1,61 @@
+﻿@viewModel  DotVVM.Samples.Migrated.Pages.CustomerNotes.CustomerNotesViewModel, TestSamples
+@masterPage Migrated/Pages/Site.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <form id="NotesForm" runat="server">
+        <div id="ResultsDiv" runat="server">
+            <table id="notes">
+                <tbody>
+                    <dot:PlaceHolder IncludeInPage={value: !string.IsNullOrEmpty( Error ) }>
+                        <tr><td colspan="3" class="error">
+                        <dot:Literal Text={value: Error } /></td></tr>
+                    </dot:PlaceHolder>
+                    <dot:RoleView Roles="Manager">
+                        <tr>
+                            <td colspan="3">
+                                <dot:PlaceHolder IncludeInPage={value: ProductId > 0}>
+                                    <a href={value: $"Products.aspx?productId={ProductId}"}>To product</a>
+                                </dot:PlaceHolder>
+                                <dot:PlaceHolder IncludeInPage={value: CategoryId > 0 && ProductId == 0}>
+                                    <a href={value: $"Categories.aspx?categoryId={CategoryId}"}>To category</a>
+                                </dot:PlaceHolder>
+                                <dot:PlaceHolder IncludeInPage={value: CategoryId == 0 && ProductId == 0}>
+                                    <a href="Dashboard.aspx">To Dashboard</a>
+                                </dot:PlaceHolder>
+                            </td>
+                        </tr>
+                    </dot:RoleView>
+                    <tr>
+                        <th>Date</th>
+                        <th>User</th>
+                        <th>Comment</th>
+                    </tr>
+                    <dot:PlaceHolder IncludeInPage={value:  Notes == null || Notes.Count == 0 }>
+                        <tr>
+                            <td colspan="3">
+                                No notes entered
+                            </td>
+                        </tr>
+                    </dot:PlaceHolder>
+                    <dot:Repeater DataSource={value: Notes } RenderWrapperTag="false">
+                        <tr>
+                            <td>
+                            <dot:Literal Text={value: CreateDate} FormatString="MM/dd/yyyy hh:mm" /></td>
+                            <td>
+                            <dot:Literal Text={value: UserName} /></td>
+                            <td>
+                            <dot:Literal Text={value: Text} /></td>
+                        </tr>
+                    </dot:Repeater>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="CreateNewDiv">
+            <h2>Add a Note</h2>
+            <dot:TextBox Type="MultiLine" ID="NoteTextField" Text={value: NoteText}/>
+            <dot:Button ID="SubmitButton" Text="Create" Click={command: Submit()} />
+        </div>
+    </form>
+</dot:Content>
+

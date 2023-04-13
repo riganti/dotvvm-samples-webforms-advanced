@@ -1,0 +1,17 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="DotVVM.Samples.Pages.SitePage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title><%=Title %></title>
+    <link href="~/Content/site.css" type="text/css" rel="stylesheet"/>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

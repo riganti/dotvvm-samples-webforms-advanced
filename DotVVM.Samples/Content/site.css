@@ -1,0 +1,29 @@
+﻿table {
+    border: 1px solid slategray;
+    border-spacing:0px;
+}
+
+tr{
+    margin: 0px;
+}
+
+td {
+    padding: 10px;
+}
+
+tr .error{
+    background-color:lightcoral;
+    color: darkred;
+    font-weight:800;
+}
+
+tr .alt {
+    background-color: lightgray;
+}
+
+th {
+    background-color: slategray;
+    color: white;
+    font-weight: 800;
+    padding: 5px;
+}
