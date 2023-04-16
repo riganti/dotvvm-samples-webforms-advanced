@@ -175,10 +175,13 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\products.js" />
     <Content Include="Pages\CustomerNotes.aspx" />
     <Content Include="Migrated\Pages\Site.dotmaster" />
     <Content Include="Migrated\Pages\CustomerNotes\CustomerNotes.dothtml" />
     <None Include="packages.config" />
+    <Content Include="Pages\Products.aspx" />
+    <Content Include="Pages\ProductsService.aspx" />
     <Content Include="Pages\Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -194,18 +197,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DotvvmStartup.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Migrated\Pages\CustomerNotes\CustomerNotesViewModel.cs" />
     <Compile Include="Migrated\Pages\SiteViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Model\Note.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="Pages\CustomerNotes.aspx.cs">
       <DependentUpon>CustomerNotes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\CustomerNotes.aspx.designer.cs">
       <DependentUpon>CustomerNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Facades\ProductFacade.cs" />
+    <Compile Include="Pages\Products.aspx.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Products.aspx.designer.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProductsService.aspx.cs">
+      <DependentUpon>ProductsService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProductsService.aspx.designer.cs">
+      <DependentUpon>ProductsService.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

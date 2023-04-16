@@ -17,7 +17,12 @@ namespace DotVVM.Samples
 
         private void RegisterRoutes(RouteCollection routes)
         {
+            //Customer notest sample
             routes.MapPageRoute("CustomerNotes", "CustomerNotes.aspx", "~/Pages/CustomerNotes.aspx");
+
+            //Products sample
+            routes.MapPageRoute("Products", "Products.aspx", "~/Pages/Products.aspx");
+            routes.MapPageRoute("ProductsService", "ProductsService.aspx", "~/Pages/ProductsService.aspx");
         }
     }
 }

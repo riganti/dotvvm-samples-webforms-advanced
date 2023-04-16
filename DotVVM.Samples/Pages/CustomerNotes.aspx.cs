@@ -15,8 +15,9 @@ namespace DotVVM.Samples.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ProductId = GetIntQuery("productId");
-            CategoryId = GetIntQuery("categoryId");
+            var context = HttpContext.Current;
+            ProductId = context.GetIntQuery("productId");
+            CategoryId = context.GetIntQuery("categoryId");
 
             Notes = new List<Note>
             {
@@ -35,14 +36,5 @@ namespace DotVVM.Samples.Pages
             }
         }
 
-        private int GetIntQuery(string parameterName)
-        {
-            var context = HttpContext.Current;
-            if (int.TryParse(context.Request.Params.GetValues(parameterName)?[0], out var value))
-            {
-                return value;
-            };
-            return 0;
-        }
     }
 }
