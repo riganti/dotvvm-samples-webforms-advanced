@@ -13,10 +13,9 @@
         <script type="text/template" id="product-template">
             <tr>
                 <td>
-                    <input type="checkbox" name="selected-{{ product.Id }}" />
-                    <input type="hidden" name="id" value="{{ product.Id }}" />
+                    <input type="hidden" value="{{ product.Id }}"/>
+                    {{ product.Code }}
                 </td>
-                <td>{{ product.Code }}</td>
                 <td>{{ product.Name }}</td>
                 <td>{{ product.Price }} EUR</td>
             </tr>
@@ -27,16 +26,13 @@
             <div class="product-dialog-template">
                 <h3>{{ product.Name }}</h3>
                 <p>
-                    <span>Code:</span>
-                    {{ product.Code }}
+                    <span>Code:</span> {{ product.Code }}
                 </p>
                 <p>
-                    <span>Price:</span>
-                    {{ product.Price }} EUR
+                    <span>Price:</span> {{ product.Price }} EUR
                 </p>
                 <p>
-                    <span>Description:</span>
-                    {{ product.Description }}
+                    <span>Description:</span> {{ product.Description }}
                 </p>
             </div>
         </script>
@@ -45,11 +41,9 @@
         <table id="products-table">
             <thead>
                 <tr>
-                    <th>
-                        <input type="checkbox" /></th>
                     <th>Code</th>
                     <th>Name</th>
-                    <th>User</th>
+                    <th>Price</th>
                 </tr>
             </thead>
             <tbody>
