@@ -9,7 +9,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <form id="ProductsForm" runat="server">
-        <!-- Underscore template -->
         <script type="text/template" id="product-template">
             <tr>
                 <td>
@@ -21,7 +20,6 @@
             </tr>
         </script>
 
-        <!-- Underscore dialog template -->
         <script type="text/template" id="product-dialog-template">
             <div class="product-dialog-template">
                 <h3>{{ product.Name }}</h3>
