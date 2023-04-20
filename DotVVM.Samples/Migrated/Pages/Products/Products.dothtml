@@ -1,0 +1,27 @@
+﻿@viewModel DotVVM.Samples.Migrated.Pages.Products.ProductsViewModel, TestSamples
+@masterPage Migrated/Pages/Site.dotmaster
+@service productsService = DotVVM.Samples.Migrated.Pages.Products.ProductsUiSetvice
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <cc:ProductDialog DataContext={value: Dialog} />
+
+    <table id="products-table">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <dot:Repeater DataSource={value: Products} WrapperTagName="tbody">
+            <tr Events.Click={staticCommand: _root.Dialog = productsService.GetDialog(Id)}>
+                <td>
+                    {{ value: Code }}
+                </td>
+                <td>{{ value: Name }}</td>
+                <td>{{ value: Price }} EUR</td>
+            </tr>
+        </dot:Repeater>
+    </table>
+</dot:Content>
+

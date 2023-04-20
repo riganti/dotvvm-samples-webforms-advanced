@@ -179,6 +179,8 @@
     <Content Include="Pages\CustomerNotes.aspx" />
     <Content Include="Migrated\Pages\Site.dotmaster" />
     <Content Include="Migrated\Pages\CustomerNotes\CustomerNotes.dothtml" />
+    <Content Include="Migrated\Pages\Products\Controls\ProductDialog.dotcontrol" />
+    <Content Include="Migrated\Pages\Products\Products.dothtml" />
     <None Include="packages.config" />
     <Content Include="Pages\Products.aspx" />
     <Content Include="Pages\ProductsService.aspx" />
@@ -199,6 +201,9 @@
     <Compile Include="DotvvmStartup.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Migrated\Pages\CustomerNotes\CustomerNotesViewModel.cs" />
+    <Compile Include="Migrated\Pages\Products\Controls\ProductDialogViewModel.cs" />
+    <Compile Include="Migrated\Pages\Products\ProductsViewModel.cs" />
+    <Compile Include="Migrated\Pages\Products\ProjectsUiSetvice.cs" />
     <Compile Include="Migrated\Pages\SiteViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

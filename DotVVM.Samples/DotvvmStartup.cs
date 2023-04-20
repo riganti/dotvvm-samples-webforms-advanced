@@ -1,5 +1,6 @@
 ﻿using DotVVM.Framework.Configuration;
 using DotVVM.Framework.ResourceManagement;
+using DotVVM.Samples.Migrated.Pages.Products;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DotVVM.Samples
@@ -16,11 +17,12 @@ namespace DotVVM.Samples
         private void RegisterRoutes(DotvvmConfiguration config, string applicationPath)
         {
             config.RouteTable.Add("CustomerNotes", "CustomerNotes", "Migrated/Pages/CustomerNotes/CustomerNotes.dothtml");
+            config.RouteTable.Add("Products", "Products", "Migrated/Pages/Products/Products.dothtml");
         }
 
         private void RegisterControls(DotvvmConfiguration config, string applicationPath)
         {
-            
+            config.Markup.AddMarkupControl("cc", "ProductDialog", "Migrated/Pages/Products/Controls/ProductDialog.dotcontrol");
         }
 
         private void RegisterResources(DotvvmConfiguration config, string applicationPath)
@@ -33,6 +35,7 @@ namespace DotVVM.Samples
 
         public void ConfigureServices(IDotvvmServiceCollection services)
         {
+            services.Services.AddTransient<ProductsUiSetvice>();
         }
     }
 }

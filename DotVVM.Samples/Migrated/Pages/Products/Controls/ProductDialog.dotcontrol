@@ -1,0 +1,47 @@
+﻿@import DotVVM.Framework.Binding.Expressions
+
+@viewModel DotVVM.Samples.Migrated.Pages.Products.Controls.ProductDialogViewModel, TestSamples
+
+<style>
+    .dialog-overlay {
+        z-index: 100;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #aaaaaa;
+        opacity: .3;
+    }
+
+    .dialog {
+        z-index: 101;
+        position: absolute;
+        top: 35%;
+        left: 35%;
+        height: auto;
+        width: 30%;
+        border: 1px solid #999;
+        border-radius: 4px;
+        background-color: #fff;
+        padding: 10px;
+    }
+</style>
+
+<div IncludeInPage={value: IsVisible} class="dialog-overlay"></div>
+
+<div IncludeInPage={value: IsVisible} class="dialog">
+    <div class="product-dialog-template">
+        <h3>{{value: Name }}</h3>
+        <p>
+            <span>Code:</span> {{value: Code }}
+        </p>
+        <p>
+            <span>Price:</span> {{value: Price }} EUR
+        </p>
+        <p>
+            <span>Description:</span> {{value: Description }}
+        </p>
+    </div>
+    <dot:Button Click={staticCommand: IsVisible = false} Text="Close" />
+</div>

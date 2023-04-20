@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace DotVVM.Samples.Pages
 {
-    public partial class ProductsService : System.Web.UI.Page
+    public partial class ProductsService : Page
     {
         private readonly ProductFacade facade;
 
