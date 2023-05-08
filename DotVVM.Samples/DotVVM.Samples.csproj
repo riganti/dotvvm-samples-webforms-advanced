@@ -176,12 +176,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\products.js" />
+    <Content Include="Controls\ProductTags.ascx" />
     <Content Include="Pages\CustomerNotes.aspx" />
     <Content Include="Migrated\Pages\Site.dotmaster" />
     <Content Include="Migrated\Pages\CustomerNotes\CustomerNotes.dothtml" />
     <Content Include="Migrated\Pages\Products\Controls\ProductDialog.dotcontrol" />
     <Content Include="Migrated\Pages\Products\Products.dothtml" />
     <None Include="packages.config" />
+    <Content Include="Pages\ProductDetail.aspx" />
     <Content Include="Pages\Products.aspx" />
     <Content Include="Pages\ProductsService.aspx" />
     <Content Include="Pages\Site.Master" />
@@ -198,6 +200,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ProductTags.ascx.cs">
+      <DependentUpon>ProductTags.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ProductTags.ascx.designer.cs">
+      <DependentUpon>ProductTags.ascx</DependentUpon>
+    </Compile>
     <Compile Include="DotvvmStartup.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Migrated\Pages\CustomerNotes\CustomerNotesViewModel.cs" />
@@ -210,6 +219,7 @@
     </Compile>
     <Compile Include="Model\Note.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Tag.cs" />
     <Compile Include="Pages\CustomerNotes.aspx.cs">
       <DependentUpon>CustomerNotes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -218,6 +228,14 @@
       <DependentUpon>CustomerNotes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Facades\ProductFacade.cs" />
+    <Compile Include="Pages\ProductDetail.aspx.cs">
+      <DependentUpon>ProductDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProductDetail.aspx.designer.cs">
+      <DependentUpon>ProductDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Facades\ProductDetailFacade.cs" />
     <Compile Include="Pages\Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
