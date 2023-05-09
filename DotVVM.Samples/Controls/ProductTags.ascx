@@ -3,7 +3,7 @@
 <div class="product-tags">
     <asp:Repeater ID="TagRepeater" runat="server">
         <ItemTemplate>
-            <span class="product-tag badge badge-primary"><%# Eval("Name") %></span>
+            <span class="product-tag"><%# Eval("Name") %></span>
         </ItemTemplate>
     </asp:Repeater>
     <div ID="AddTagPanel" runat="server" Visible="false">

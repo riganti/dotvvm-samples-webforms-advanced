@@ -1,5 +1,6 @@
 ﻿using DotVVM.Samples.Model;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DotVVM.Samples.Facades
 {
@@ -27,6 +28,11 @@ namespace DotVVM.Samples.Facades
         public List<Category> GetCategories(int productId)
         {
             return Categories[productId];
+        }
+
+        public void SaveCategories(int productId, List<Category> categories)
+        {
+            Categories[productId] = categories;
         }
     }
 }

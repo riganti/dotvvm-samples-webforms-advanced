@@ -16,6 +16,15 @@ namespace DotVVM.Samples
             return 0;
         }
 
+        public static bool GetBoolQuery(this HttpContext context, string parameterName)
+        {
+            if (bool.TryParse(GetQuery(context, parameterName), out var value))
+            {
+                return value;
+            }
+            return false;
+        }
+
         public static string GetQuery(this HttpContext context, string parameterName)
         {
             return context.Request.Params.GetValues(parameterName)?[0];

@@ -1,9 +1,9 @@
 ﻿table {
     border: 1px solid slategray;
-    border-spacing:0px;
+    border-spacing: 0px;
 }
 
-tr{
+tr {
     margin: 0px;
 }
 
@@ -11,10 +11,10 @@ td {
     padding: 10px;
 }
 
-tr .error{
-    background-color:lightcoral;
+tr .error {
+    background-color: lightcoral;
     color: darkred;
-    font-weight:800;
+    font-weight: 800;
 }
 
 tr .alt {
@@ -26,4 +26,30 @@ th {
     color: white;
     font-weight: 800;
     padding: 5px;
+}
+
+.product-tag {
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    font-size: 15px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.product-category {
+    display: block;
+    padding: 5px;
+}
+
+.categories {
+    display: inline-block;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.detail {
+    display: block;
 }

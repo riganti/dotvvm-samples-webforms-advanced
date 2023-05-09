@@ -7,38 +7,47 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DotVVM.Samples.Pages
+namespace DotVVM.Samples.Controls
 {
 
 
-    public partial class ProductDetail
+    public partial class ProductCategories
     {
 
         /// <summary>
-        /// NotesForm control.
+        /// CategoryRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm NotesForm;
+        protected global::System.Web.UI.WebControls.Repeater CategoryRepeater;
 
         /// <summary>
-        /// ProductTagsControl control.
+        /// AddCategoryPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotVVM.Samples.Controls.ProductTags ProductTagsControl;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AddCategoryPanel;
 
         /// <summary>
-        /// ProductCategoriesControl control.
+        /// NewCategoryTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotVVM.Samples.Controls.ProductCategories ProductCategoriesControl;
+        protected global::System.Web.UI.WebControls.TextBox NewCategoryTextBox;
+
+        /// <summary>
+        /// AddButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddButton;
     }
 }

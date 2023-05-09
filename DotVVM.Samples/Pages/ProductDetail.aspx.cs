@@ -18,13 +18,8 @@ namespace DotVVM.Samples.Pages
         private int _productId;
 
         public List<Tag> Tags { get; set; } = new List<Tag>();
-        public List<Category> Categories { get; set; }
         public Product Product { get; set; }
-        public bool SortCategoriesDesc { get; set; }
         public string Message { get; set; }
-
-        public int CategoryCount => Categories?.Count ?? 0;
-
 
         public ProductDetail()
         {
@@ -47,14 +42,6 @@ namespace DotVVM.Samples.Pages
             Tags = _facade.GetTags(_productId);
             Product = _productFacade.Get(_productId);
 
-            if (!IsPostBack)
-            {
-                Categories = _facade.GetCategories(_productId);
-            }
-            else
-            {
-                Categories = ParseCategories().ToList();
-            }
             BindData();
         }
 
@@ -63,31 +50,14 @@ namespace DotVVM.Samples.Pages
             ProductTagsControl.Tags = Tags;
             ProductTagsControl.DataBind();
 
-            CategoryRepeater.DataSource = Categories;
-            CategoryRepeater.DataBind();
-        }
-
-        private IEnumerable<Category> ParseCategories()
-        {
-            var context = HttpContext.Current;
-            var tagCount = context.GetIntQuery("CategoryCount");
-            for (int i = 0; i < tagCount; i++)
-            {
-                yield return new Category
-                {
-                    Id = context.GetIntQuery($"categoryId_{i}"),
-                    Name = context.GetQuery($"categoryName_{i}")
-                };
-            }
-        }
-
-        protected void AddCategoryButton_Click(object sender, EventArgs e)
-        {
-
+            ProductCategoriesControl.ProductId = _productId;
+            ProductCategoriesControl.DataBind();
         }
 
         protected void Save_Click(object sender, EventArgs e)
         {
+            var categories = ProductCategoriesControl.GetCategories();
+            _facade.SaveCategories(_productId, categories);
         }
     }
 }
