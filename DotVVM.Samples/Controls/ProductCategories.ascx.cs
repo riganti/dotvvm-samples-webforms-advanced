@@ -12,11 +12,11 @@ namespace DotVVM.Samples.Controls
 {
     public partial class ProductCategories : UserControl
     {
-        private ProductDetailFacade _facade;
+        private readonly ProductDetailFacade _facade;
+        private bool sortDescending;
 
         public int ProductId { get; set; }
-        public List<Category> Categories { get; private set; } = new List<Category>();
-        public bool SortCategoriesDesc { get; private set; }
+        protected List<Category> Categories { get; private set; } = new List<Category>();
 
         public ProductCategories()
         {
@@ -40,11 +40,12 @@ namespace DotVVM.Samples.Controls
 
         public List<Category> GetCategories()
         {
-            return Categories;
+            return Categories.OrderBy(c=> c.Id).ToList();
         }
 
         private void PrepareCategories()
         {
+
             if (!IsPostBack)
             {
                 Categories = ProductId > 0
@@ -53,22 +54,27 @@ namespace DotVVM.Samples.Controls
             }
             else
             {
-                Categories = ParseCategories().ToList();
+                Categories = ReadCategories().ToList();
             }
+
+            sortDescending = HttpContext.Current.GetBoolQuery("desc");
+
+            Categories = sortDescending 
+                ? Categories.OrderByDescending(x => x.Name).ToList() 
+                : Categories.OrderBy(x => x.Name).ToList();
         }
 
-        private IEnumerable<Category> ParseCategories()
+        private IEnumerable<Category> ReadCategories()
         {
-            var context = HttpContext.Current;
-            var categoryCount = context.GetIntQuery("categoryCount");
-            SortCategoriesDesc = context.GetBoolQuery("desc");
-
-            for (int i = 0; i < categoryCount; i++)
+            foreach (RepeaterItem item in CategoryRepeater.Items)
             {
+                var idField = (HiddenField)item.FindControl("CategoryIdField");
+                var textField = (TextBox)item.FindControl("CategoryNameField");
+
                 yield return new Category
                 {
-                    Id = context.GetIntQuery($"categoryId_{i}"),
-                    Name = context.GetQuery($"categoryName_{i}")
+                    Id = int.TryParse(idField.Value, out var id) ? id : 0,
+                    Name = textField.Text
                 };
             }
         }
@@ -83,5 +89,42 @@ namespace DotVVM.Samples.Controls
             NewCategoryTextBox.Text = "";
             BindRepeaterData();
         }
+
+        public string GetSortSelect()
+        {
+            return GetSelectControl("desc",
+                sortDescending,
+                new SelectItem[] {
+                    new SelectItem { Text = "Ascending", Value = false },
+                    new SelectItem { Text = "Descending", Value = true },
+                });
+        }
+
+        public string GetSelectControl(string name, object selectedValue, IList<SelectItem> items)
+        {
+            return $@"
+				<select
+					name=""{name}""
+				>{string.Concat(items.Select(t => GetOption(
+                        selectedValue == t.Value,
+                        t.Value,
+                        t.Text))
+                )}</select>";
+        }
+
+        private string GetOption(
+            bool isSelected,
+            object value,
+            string text,
+            string tooltip = "")
+        {
+            var selected = isSelected ? "selected" : "";
+            var description = HttpUtility.HtmlEncode(text);
+            var title = !string.IsNullOrEmpty(tooltip) ? $"title=\"{tooltip}\"" : "";
+
+            return $@"<option value={value} {selected} {title}>{description}</option>";
+        }
+
+        
     }
 }

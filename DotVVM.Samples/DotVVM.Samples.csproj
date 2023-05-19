@@ -228,6 +228,7 @@
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Note.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\SelectItem.cs" />
     <Compile Include="Model\Tag.cs" />
     <Compile Include="Pages\CustomerNotes.aspx.cs">
       <DependentUpon>CustomerNotes.aspx</DependentUpon>
