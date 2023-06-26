@@ -183,6 +183,9 @@
     <Content Include="Migrated\Pages\CustomerNotes\CustomerNotes.dothtml" />
     <Content Include="Migrated\Pages\Products\Controls\ProductDialog.dotcontrol" />
     <Content Include="Migrated\Pages\Products\Products.dothtml" />
+    <Content Include="Migrated\Controls\ProductTags.dotcontrol" />
+    <Content Include="Migrated\Pages\ProductDetail\ProductDetail.dothtml" />
+    <Content Include="Migrated\Pages\EditTags\EditTags.dothtml" />
     <None Include="packages.config" />
     <Content Include="Pages\ProductDetail.aspx" />
     <Content Include="Pages\Products.aspx" />
@@ -218,6 +221,8 @@
     <Compile Include="DotvvmStartup.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Migrated\Pages\CustomerNotes\CustomerNotesViewModel.cs" />
+    <Compile Include="Migrated\Pages\EditTags\EditTagsViewModel.cs" />
+    <Compile Include="Migrated\Pages\ProductDetail\ProductDetailViewModel.cs" />
     <Compile Include="Migrated\Pages\Products\Controls\ProductDialogViewModel.cs" />
     <Compile Include="Migrated\Pages\Products\ProductsViewModel.cs" />
     <Compile Include="Migrated\Pages\Products\ProjectsUiSetvice.cs" />

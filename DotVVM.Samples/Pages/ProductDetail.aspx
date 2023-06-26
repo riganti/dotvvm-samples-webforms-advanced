@@ -15,7 +15,7 @@
             </ul>
 
             <h2>Tags:</h2>
-            <uc:ProductTags ID="ProductTagsControl" runat="server" />
+            <uc:ProductTags ID="ProductTagsControl" AllowEditing="true" runat="server" />
             <h2>Categories:</h2>
             <uc:ProductCategories ID="ProductCategoriesControl" runat="server" />
         </div>

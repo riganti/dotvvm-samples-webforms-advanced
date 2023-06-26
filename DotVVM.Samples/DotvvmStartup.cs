@@ -18,11 +18,14 @@ namespace DotVVM.Samples
         {
             config.RouteTable.Add("CustomerNotes", "CustomerNotes", "Migrated/Pages/CustomerNotes/CustomerNotes.dothtml");
             config.RouteTable.Add("Products", "Products", "Migrated/Pages/Products/Products.dothtml");
+            config.RouteTable.Add("ProductDetail", "ProductDetail", "Migrated/Pages/ProductDetail/ProductDetail.dothtml");
+            config.RouteTable.Add("EditTags", "EditTags", "Migrated/Pages/EditTags/EditTags.dothtml");
         }
 
         private void RegisterControls(DotvvmConfiguration config, string applicationPath)
         {
             config.Markup.AddMarkupControl("cc", "ProductDialog", "Migrated/Pages/Products/Controls/ProductDialog.dotcontrol");
+            config.Markup.AddMarkupControl("cc", "ProductTags", "Migrated/Pages/Controls/ProductTags.dotcontrol");
         }
 
         private void RegisterResources(DotvvmConfiguration config, string applicationPath)

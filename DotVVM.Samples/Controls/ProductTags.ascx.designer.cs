@@ -15,6 +15,15 @@ namespace DotVVM.Samples.Controls
     {
 
         /// <summary>
+        /// EditTagPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EditTagPanel;
+
+        /// <summary>
         /// TagRepeater control.
         /// </summary>
         /// <remarks>
@@ -22,32 +31,5 @@ namespace DotVVM.Samples.Controls
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater TagRepeater;
-
-        /// <summary>
-        /// AddTagPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AddTagPanel;
-
-        /// <summary>
-        /// NewTagTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NewTagTextBox;
-
-        /// <summary>
-        /// AddTagButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddTagButton;
     }
 }

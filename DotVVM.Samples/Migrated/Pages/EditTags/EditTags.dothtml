@@ -1,0 +1,8 @@
+﻿@viewModel DotVVM.Samples.Migrated.Pages.EditTags.EditTagsViewModel, TestSamples
+@masterPage Migrated/Pages/Site.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+
+</dot:Content>
+

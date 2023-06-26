@@ -48,6 +48,7 @@ namespace DotVVM.Samples.Pages
         private void BindData()
         {
             ProductTagsControl.Tags = Tags;
+            ProductTagsControl.ProductId = _productId;
             ProductTagsControl.DataBind();
 
             ProductCategoriesControl.ProductId = _productId;

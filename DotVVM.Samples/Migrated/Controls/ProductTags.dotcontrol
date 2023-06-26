@@ -1,0 +1,19 @@
+﻿@import System.Collections.Generic
+@import DotVVM.Samples.Model
+@import DotVVM.Framework.Binding.Expressions
+
+@viewModel object
+
+@property List<Tag> Tags
+@property bool AllowEditing
+@property int ProductId
+
+<div class="product-tags">
+    <div id="EditTagPanel" runat="server" visible="false">
+        You can  <dot:RouteLink RouteName="EditTags" Text="edit tags" Query-productId={value: _control.ProductId} />.
+    </div>
+    <dot:Repeater ID="TagRepeater" DataSource={value: _control.Tags} class="tagContainer">
+        <span class="product-tag" InnerText={value: Name} />
+    </dot:Repeater> 
+</div>
+
