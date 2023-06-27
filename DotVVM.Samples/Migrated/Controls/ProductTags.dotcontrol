@@ -9,7 +9,7 @@
 @property int ProductId
 
 <div class="product-tags">
-    <div id="EditTagPanel" runat="server" visible="false">
+    <div id="EditTagPanel" IncludeInPage={resource: _control.AllowEditing}>
         You can  <dot:RouteLink RouteName="EditTags" Text="edit tags" Query-productId={value: _control.ProductId} />.
     </div>
     <dot:Repeater ID="TagRepeater" DataSource={value: _control.Tags} class="tagContainer">

@@ -27,6 +27,8 @@ namespace DotVVM.Samples.Controls
         {
             PrepareCategories();
 
+            ValidateCategories();
+
             BindRepeaterData();
 
             base.DataBind();
@@ -40,7 +42,7 @@ namespace DotVVM.Samples.Controls
 
         public List<Category> GetCategories()
         {
-            return Categories.OrderBy(c=> c.Id).ToList();
+            return Categories.OrderBy(c => c.Id).ToList();
         }
 
         private void PrepareCategories()
@@ -57,11 +59,21 @@ namespace DotVVM.Samples.Controls
                 Categories = ReadCategories().ToList();
             }
 
-            sortDescending = HttpContext.Current.GetBoolQuery("desc");
+            sortDescending = HttpContext.Current.GetBoolQuery("categoriesDesc");
 
-            Categories = sortDescending 
-                ? Categories.OrderByDescending(x => x.Name).ToList() 
+            Categories = sortDescending
+                ? Categories.OrderByDescending(x => x.Name).ToList()
                 : Categories.OrderBy(x => x.Name).ToList();
+        }
+
+        public void ValidateCategories()
+        {
+            foreach (var category in Categories)
+            {
+                category.IsError = 
+                    string.IsNullOrEmpty(category.Name) 
+                    || Categories.Any(c => c.Id != category.Id && string.Equals(c.Name, category.Name));
+            }
         }
 
         private IEnumerable<Category> ReadCategories()
@@ -83,16 +95,18 @@ namespace DotVVM.Samples.Controls
         {
             Categories.Add(new Category
             {
-                Id = Categories.Count,
+                Id = Categories.Count+1,
                 Name = NewCategoryTextBox.Text
             });
             NewCategoryTextBox.Text = "";
+
+            ValidateCategories();
             BindRepeaterData();
         }
 
         public string GetSortSelect()
         {
-            return GetSelectControl("desc",
+            return GetSelectControl("categoriesDesc",
                 sortDescending,
                 new SelectItem[] {
                     new SelectItem { Text = "Ascending", Value = false },
@@ -124,7 +138,5 @@ namespace DotVVM.Samples.Controls
 
             return $@"<option value={value} {selected} {title}>{description}</option>";
         }
-
-        
     }
 }

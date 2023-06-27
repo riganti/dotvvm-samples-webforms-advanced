@@ -57,3 +57,11 @@ th {
 .tagContainer {
     margin: 10px 0 5px 0;
 }
+
+.category-error {
+    background-color: #ffd800;
+}
+
+.add-category {
+    border-top: 1px solid lightgray;
+}

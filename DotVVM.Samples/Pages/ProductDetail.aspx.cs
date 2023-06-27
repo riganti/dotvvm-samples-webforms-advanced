@@ -58,7 +58,15 @@ namespace DotVVM.Samples.Pages
         protected void Save_Click(object sender, EventArgs e)
         {
             var categories = ProductCategoriesControl.GetCategories();
-            _facade.SaveCategories(_productId, categories);
+
+            if (!categories.Any(c => c.IsError))
+            {
+                _facade.SaveCategories(_productId, categories);
+            }
+            else
+            {
+                Message = "Cannot save.";
+            }
         }
     }
 }
