@@ -13,7 +13,7 @@ namespace DotVVM.Samples.Controls
     public partial class ProductCategories : UserControl
     {
         private readonly ProductDetailFacade _facade;
-        private bool sortDescending;
+        private bool _sortDescending;
 
         public int ProductId { get; set; }
         protected List<Category> Categories { get; private set; } = new List<Category>();
@@ -34,15 +34,38 @@ namespace DotVVM.Samples.Controls
             base.DataBind();
         }
 
+        public List<Category> GetCategories()
+        {
+            return Categories.OrderBy(c => c.Id).ToList();
+        }
+
+        protected void AddButton_Click(object sender, EventArgs e)
+        {
+            Categories.Add(new Category
+            {
+                Id = Categories.Count + 1,
+                Name = NewCategoryTextBox.Text
+            });
+            NewCategoryTextBox.Text = "";
+
+            ValidateCategories();
+            BindRepeaterData();
+        }
+
+        protected string GetSortSelect()
+        {
+            return GetSelectControl("categoriesDesc",
+                _sortDescending,
+                new SelectItem[] {
+                    new SelectItem { Text = "Ascending", Value = false },
+                    new SelectItem { Text = "Descending", Value = true },
+                });
+        }
+
         private void BindRepeaterData()
         {
             CategoryRepeater.DataSource = Categories;
             CategoryRepeater.DataBind();
-        }
-
-        public List<Category> GetCategories()
-        {
-            return Categories.OrderBy(c => c.Id).ToList();
         }
 
         private void PrepareCategories()
@@ -59,9 +82,9 @@ namespace DotVVM.Samples.Controls
                 Categories = ReadCategories().ToList();
             }
 
-            sortDescending = HttpContext.Current.GetBoolQuery("categoriesDesc");
+            _sortDescending = HttpContext.Current.GetBoolQuery("categoriesDesc");
 
-            Categories = sortDescending
+            Categories = _sortDescending
                 ? Categories.OrderByDescending(x => x.Name).ToList()
                 : Categories.OrderBy(x => x.Name).ToList();
         }
@@ -91,30 +114,7 @@ namespace DotVVM.Samples.Controls
             }
         }
 
-        protected void AddButton_Click(object sender, EventArgs e)
-        {
-            Categories.Add(new Category
-            {
-                Id = Categories.Count+1,
-                Name = NewCategoryTextBox.Text
-            });
-            NewCategoryTextBox.Text = "";
-
-            ValidateCategories();
-            BindRepeaterData();
-        }
-
-        public string GetSortSelect()
-        {
-            return GetSelectControl("categoriesDesc",
-                sortDescending,
-                new SelectItem[] {
-                    new SelectItem { Text = "Ascending", Value = false },
-                    new SelectItem { Text = "Descending", Value = true },
-                });
-        }
-
-        public string GetSelectControl(string name, object selectedValue, IList<SelectItem> items)
+        private string GetSelectControl(string name, object selectedValue, IList<SelectItem> items)
         {
             return $@"
 				<select
