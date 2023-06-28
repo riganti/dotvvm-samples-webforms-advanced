@@ -1,0 +1,7 @@
+﻿@viewModel DotVVM.Samples.Migrated.Controls.ProductCategories.ProductCategoriesViewModel
+
+@property int ProductId
+
+<div class="categories">
+    
+</div>

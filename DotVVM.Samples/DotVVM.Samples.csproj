@@ -220,6 +220,8 @@
     </Compile>
     <Compile Include="DotvvmStartup.cs" />
     <Compile Include="Extensions.cs" />
+    <None Include="Migrated\Controls\ProductCategories\ProductCategories.dotcontrol" />
+    <Compile Include="Migrated\Controls\ProductCategories\ProductCategoriesViewModel.cs" />
     <Compile Include="Migrated\Pages\CustomerNotes\CustomerNotesViewModel.cs" />
     <Compile Include="Migrated\Pages\EditTags\EditTagsViewModel.cs" />
     <Compile Include="Migrated\Pages\ProductDetail\ProductDetailViewModel.cs" />
