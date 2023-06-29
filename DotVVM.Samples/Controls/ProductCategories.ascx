@@ -1,10 +1,11 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ProductCategories.ascx.cs" Inherits="DotVVM.Samples.Controls.ProductCategories" %>
 
-<div class="categories">
+<div class="categories">   
     <div class="filter">
         <%= GetSortSelect() %>
         <asp:Button UseSubmitBehavior="true" ID="SortButton" Text="Sort categories" runat="server" />
     </div>
+    <span id="ValidationMessageSpan" class="error" runat="server"></span>
     <asp:Repeater ID="CategoryRepeater" runat="server">
         <ItemTemplate>
             <div class="product-category <%#  (bool)Eval("IsError") ? "category-error": "" %>">

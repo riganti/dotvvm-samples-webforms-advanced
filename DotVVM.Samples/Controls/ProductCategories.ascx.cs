@@ -66,11 +66,16 @@ namespace DotVVM.Samples.Controls
         {
             CategoryRepeater.DataSource = Categories;
             CategoryRepeater.DataBind();
+
+            if (Categories.Any(c => c.IsError))
+            {
+                ValidationMessageSpan.Visible = true;
+                ValidationMessageSpan.InnerText = "Some categories are invalid";
+            }
         }
 
         private void PrepareCategories()
         {
-
             if (!IsPostBack)
             {
                 Categories = ProductId > 0

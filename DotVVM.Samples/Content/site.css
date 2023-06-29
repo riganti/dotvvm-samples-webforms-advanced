@@ -65,3 +65,7 @@ th {
 .add-category {
     border-top: 1px solid lightgray;
 }
+
+span.error {
+    color: darkred;
+}
