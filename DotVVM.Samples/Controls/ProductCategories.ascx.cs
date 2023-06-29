@@ -29,7 +29,7 @@ namespace DotVVM.Samples.Controls
 
             ValidateCategories();
 
-            BindRepeaterData();
+            BindControlData();
 
             base.DataBind();
         }
@@ -49,7 +49,7 @@ namespace DotVVM.Samples.Controls
             NewCategoryTextBox.Text = "";
 
             ValidateCategories();
-            BindRepeaterData();
+            BindControlData();
         }
 
         protected string GetSortSelect()
@@ -62,7 +62,7 @@ namespace DotVVM.Samples.Controls
                 });
         }
 
-        private void BindRepeaterData()
+        private void BindControlData()
         {
             CategoryRepeater.DataSource = Categories;
             CategoryRepeater.DataBind();

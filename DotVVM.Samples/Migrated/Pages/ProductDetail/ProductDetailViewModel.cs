@@ -17,6 +17,12 @@ namespace DotVVM.Samples.Migrated.Pages.ProductDetail
         public List<Tag> Tags { get; set; }
 
         public ProductCategoriesViewModel Categories { get; set; } = new ProductCategoriesViewModel();
+
+        public override Task PreRender()
+        {
+            Categories.DataBind();
+            return base.PreRender();
+        }
     }
 }
 

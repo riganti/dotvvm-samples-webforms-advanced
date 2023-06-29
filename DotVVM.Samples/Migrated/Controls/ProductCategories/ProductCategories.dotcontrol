@@ -4,10 +4,18 @@
 
 <div class="categories">
     <div class="filter">
-        <dot:ComboBox DataSource={value: SortingOptions} 
-                      SelectedValue={value: SortDescending} 
+        <dot:ComboBox DataSource={value: SortingOptions}
+                      SelectedValue={value: SortDescending}
                       ItemTextBinding={value: Text}
                       ItemValueBinding={value: Value == "1"} />
         <dot:Button ID="SortButton" Click={command: null} Text="Sort categories" />
     </div>
+    <span IncludeInPage={value: string.IsNullOrEmpty(ValidationMessageSpanText)} InnerText={value: ValidationMessageSpanText} />
+    <dot:Repeater DataSource={value: Categories} ID="CategoryRepeater">
+        <ItemTemplate>
+            <div Class-product-category="true" Class-category-error={value: IsError}>
+                <dot:TextBox ID="CategoryNameField" Text={value: Name}/>
+            </div>
+        </ItemTemplate>
+    </dot:Repeater>
 </div>
