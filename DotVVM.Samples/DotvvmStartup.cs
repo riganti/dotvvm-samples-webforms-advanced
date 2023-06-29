@@ -25,8 +25,8 @@ namespace DotVVM.Samples
         private void RegisterControls(DotvvmConfiguration config, string applicationPath)
         {
             config.Markup.AddMarkupControl("cc", "ProductDialog", "Migrated/Pages/Products/Controls/ProductDialog.dotcontrol");
-            config.Markup.AddMarkupControl("cc", "ProductTags", "Migrated/Pages/Controls/ProductTags.dotcontrol");
-            config.Markup.AddMarkupControl("cc", "ProductCategories", "Migrated/Pages/Controls/ProductCategories/ProductCategories.dotcontrol");
+            config.Markup.AddMarkupControl("cc", "ProductTags", "Migrated/Controls/ProductTags.dotcontrol");
+            config.Markup.AddMarkupControl("cc", "ProductCategories", "Migrated/Controls/ProductCategories/ProductCategories.dotcontrol");
         }
 
         private void RegisterResources(DotvvmConfiguration config, string applicationPath)

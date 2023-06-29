@@ -2,7 +2,7 @@
 @masterPage Migrated/Pages/Site.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">
-
-
+    <cc:ProductTags Tags={value: Tags} AllowEditing="true" ProductId={value: ProductId} />
+    <cc:ProductCategories DataContext={value: Categories} ProductId={value: _root.ProductId} />
 </dot:Content>
 

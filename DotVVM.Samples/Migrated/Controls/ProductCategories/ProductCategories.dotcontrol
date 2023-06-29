@@ -3,5 +3,11 @@
 @property int ProductId
 
 <div class="categories">
-    
+    <div class="filter">
+        <dot:ComboBox DataSource={value: SortingOptions} 
+                      SelectedValue={value: SortDescending} 
+                      ItemTextBinding={value: Text}
+                      ItemValueBinding={value: Value == "1"} />
+        <dot:Button ID="SortButton" Click={command: null} Text="Sort categories" />
+    </div>
 </div>
