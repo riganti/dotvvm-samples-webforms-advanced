@@ -1,13 +1,10 @@
-﻿using DotVVM.Framework.Controls;
-using DotVVM.Framework.ViewModel;
+﻿using DotVVM.Framework.ViewModel;
 using DotVVM.Samples.Facades;
 using DotVVM.Samples.Migrated.Pages;
 using DotVVM.Samples.Model;
-using DotVVM.Samples.Pages;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System;
 
 namespace DotVVM.Samples.Migrated.Controls.ProductCategories
 {
@@ -22,6 +19,7 @@ namespace DotVVM.Samples.Migrated.Controls.ProductCategories
         public List<Category> Categories { get; set; } = new List<Category>();
 
         public string ValidationMessageSpanText { get; private set; }
+        public string NewCategoryTextBoxText { get; set; }
 
         public SelectItem[] SortingOptions { get; } =
             new SelectItem[] {
@@ -47,6 +45,19 @@ namespace DotVVM.Samples.Migrated.Controls.ProductCategories
         public List<Category> GetCategories()
         {
             return Categories.OrderBy(c => c.Id).ToList();
+        }
+
+        public void AddButtonClick()
+        {
+            Categories.Add(new Category
+            {
+                Id = Categories.Count + 1,
+                Name = NewCategoryTextBoxText
+            });
+            NewCategoryTextBoxText = "";
+
+            ValidateCategories();
+            BindControlData();
         }
 
         private void ValidateCategories()

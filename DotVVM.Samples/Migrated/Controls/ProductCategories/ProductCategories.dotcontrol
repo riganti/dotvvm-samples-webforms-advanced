@@ -14,8 +14,12 @@
     <dot:Repeater DataSource={value: Categories} ID="CategoryRepeater">
         <ItemTemplate>
             <div Class-product-category="true" Class-category-error={value: IsError}>
-                <dot:TextBox ID="CategoryNameField" Text={value: Name}/>
+                <dot:TextBox ID="CategoryNameField" Text={value: Name} />
             </div>
         </ItemTemplate>
     </dot:Repeater>
+    <div class="product-category add-category" id="AddCategoryPanel">
+        <dot:TextBox name="newCategory" ID="NewCategoryTextBox" class="form-control" Text={value: NewCategoryTextBoxText} />
+        <dot:Button ID="AddButton" class="form-control" Text="Add" Click={command: AddButtonClick()} />
+    </div>
 </div>
