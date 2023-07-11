@@ -1,6 +1,5 @@
 ﻿using DotVVM.Samples.Model;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace DotVVM.Samples.Facades
 {
@@ -20,9 +19,11 @@ namespace DotVVM.Samples.Facades
             { 3, new List<Category> { new Category { Name = "Furniture", Id = 4 }, new Category { Name= "Garden", Id = 2 }, new Category { Name = "Home", Id = 1 } } }
         };
 
+        public static Dictionary<int, List<Tag>> Tags1 => Tags;
+
         public List<Tag> GetTags(int productId)
         {
-            return Tags[productId];
+            return Tags1[productId];
         }
 
         public List<Category> GetCategories(int productId)

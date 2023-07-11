@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using DotVVM.Framework.ViewModel;
-using DotVVM.Framework.Hosting;
 using DotVVM.Samples.Model;
-using DotVVM.Samples.Controls;
 using DotVVM.Samples.Migrated.Controls.ProductCategories;
-using System.Web.Services.Description;
 using DotVVM.Samples.Facades;
 
 namespace DotVVM.Samples.Migrated.Pages.ProductDetail
